@@ -1,5 +1,11 @@
 import java.util.ArrayList;
 
+/*Estrutura do estado do automato
+ *Possui uma lista chamada de Map para as possíveis transições
+ *Nesse Map são salvos os estados possíveis e quais as chaves para cada estado
+ *Também é salvo se o estado é de aceitação e uma lista de caracteres para verificar
+ *quais são os possíveis caminhos do estado, 
+*/
 public class State {
     private ArrayList<Map> transitions;
     private boolean acceptance;
@@ -22,6 +28,14 @@ public class State {
         return transitions;
     }
  
+    /* A função goTo é a função que retorna o caminho que deve ser seguido no estado
+     * a partir da entrada. Basicamente a função da prioridade para estados de aceitação
+     * quando o tamanho da entrada é 1 e a transição é possui a chave necessária.
+     * A função busca a transição que possui a chave correta e depois verifica se o estado
+     * próximo estado vai ser a aceitação ou se possui caminhos válidos até a aceitação,
+     * caso não encontre ele busca o próximo estado cuja a transição possua a chave necessária
+     * pela cadeia.
+     */
     public State goTo(String input){
         State next = null;
         for (Map transition: transitions ){
@@ -57,6 +71,7 @@ public class State {
         return paths;
     }
     
+    //Função que verifica os demais caminhos para procurar um aceitável.
     public boolean verifyNext(State q, String input){
         
         if(q.paths.contains(input.substring(0,1))){
@@ -76,6 +91,7 @@ public class State {
         return false;
     }
 
+    //Classe privada para mapear o objeto Map
     private class Map{
         private State state;
         private String key;
