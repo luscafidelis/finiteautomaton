@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Arquivo base do programa que simula finitos automatos
+ * Arquivo base do programa que simula automatos finitos
  */
 
 public class FiniteAutomaton {
@@ -11,9 +11,6 @@ public class FiniteAutomaton {
         //Variavei para salvar os dados do trabalho
         int states, terminal, starter, transitions, inputSize;
         String terminals, transition[], acceptance, input;
-
-        //Estado "inicial"
-        State startState = new State(-1);
         
         states = scanner.nextInt();
 
@@ -31,6 +28,8 @@ public class FiniteAutomaton {
         starter = scanner.nextInt();
         scanner.nextLine();
 
+        //Estado "inicial"
+        State startState = new State(-1);
         //Adicionando o estado inicial ao falso inicio
         for(int i = 0; i < starter; i++)
             startState.addTransition(".", q[i]);
