@@ -1,0 +1,5 @@
+Para executar o trabalho basta navegar via linha de comando/terminal até o diretório em que o arquivo "FiniteAutomaton.jar"
+se encontra e executar: "java -jar FiniteAutomaton.jar < arquio-de-entrada.txt". É importante ressaltar que o Java deve
+instalado no computador e "arquivo-de-entrada.txt" se refere ao arquivo (ou caminho até o mesmo) que será executado.
+Alternativamente o programa também pode ser executado ao inserir o comando: "java -jar FiniteAutomaton.jar" porém desta forma
+os dados de entrada devem ser inseridos manualmente.
